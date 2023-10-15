@@ -1,0 +1,70 @@
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.btn-subscribe {
+  border-radius: 2rem;
+  padding: 12px 20px;
+  background-color: var(--bs-navbar-brand-color);
+  color: white;
+  font-weight: 500;
+}
+
+.main {
+  margin-top: 1rem;
+  ul {
+    width: 70%;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    gap: 1rem;
+
+    li {
+      list-style: none;
+      font-weight: 500;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        right: 0;
+        width: 0;
+        height: 5px;
+        background-color: #000000;
+        transition: all 0.3s ease-out;
+      }
+
+      &:hover::after {
+        width: 100%;
+        left: 0;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .active::after {
+      width: 100%;
+    }
+  }
+}
+
+.img-fluid {
+  margin: auto;
+  border-radius: 5px;
+}
+
+.top-80 {
+  top: 80%;
+}
+
+#catrgory {
+  color: #000000;
+  font-weight: 600;
+  position: absolute;
+  left: 3.125rem;
+  top: 2.1875rem;
+  border-radius: 22px;
+  padding: 8px 30px;
+}
