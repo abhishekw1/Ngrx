@@ -1,0 +1,11 @@
+<br />
+
+<app-news-item
+  *ngFor="let oneNews of sectionNewsList; let i = index"
+  [id]="i"
+  [newsItem]="oneNews"
+>
+</app-news-item>
+<div class="card" *ngIf="sectionNewsList.length === 0">
+  <h1>No News Found</h1>
+</div>

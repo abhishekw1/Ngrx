@@ -1,0 +1,31 @@
+<div class="media">
+  <!-- Display "image not found", when multimedia[] is empty" -->
+  <img
+    *ngIf="newsItem.multimedia.length === 0"
+    class="d-flex mr-3"
+    alt="64x64"
+    src="http://www.video-furn.com/images/icons/AVFI-Image-not-available-icon.jpg"
+    style="width: 75px; height: 75px"
+  />
+
+  <!-- Display "the image", when multimedia[] is not empty" -->
+  <img
+    *ngIf="newsItem.multimedia.length > 0"
+    class="d-flex mr-3"
+    alt="64x64"
+    [src]="newsItem.multimedia[0].url"
+    style="width: 75px; height: 75px"
+  />
+
+  <h5 class="mt-0">{{ newsItem.title }}</h5>
+  <div class="media-body">
+    {{ newsItem.abstract }}
+  </div>
+</div>
+<!-- Button trigger modal -->
+<div class="d-flex justify-content-end">
+  <a [href]="newsItem.url" target="_blank"> Read More ...</a>
+</div>
+<br />
+<div class="h-divider"></div>
+<br />
