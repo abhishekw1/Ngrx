@@ -1,6 +1,6 @@
 # Todaynews
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
+ Click here to watch the live [Ngrx](https://abhishekw1.github.io/Ngrx).
 
 ## Development server
 
