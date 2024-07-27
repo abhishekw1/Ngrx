@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 /***** Components *****/
 import { AppComponent } from './app.component';
 import { NewsComponent } from './components/news/news.component';
@@ -21,25 +21,18 @@ import { newsReducer } from './store/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { NewsEffect } from './store/effects';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    NewsComponent,
-    HeaderComponent,
-    NavbarComponent,
-    NewsItemComponent,
-    SectionsComponent,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    RouterModule.forRoot(routes),
-    StoreModule.forRoot({ news: newsReducer }),
-    EffectsModule.forRoot([NewsEffect]),
-    HttpClientModule,
-    StoreDevtoolsModule.instrument(),
-  ],
-  providers: [NewsService],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        NewsComponent,
+        HeaderComponent,
+        NavbarComponent,
+        NewsItemComponent,
+        SectionsComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        FormsModule,
+        RouterModule.forRoot(routes),
+        StoreModule.forRoot({ news: newsReducer }),
+        EffectsModule.forRoot([NewsEffect]),
+        StoreDevtoolsModule.instrument({connectInZone: true})], providers: [NewsService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}

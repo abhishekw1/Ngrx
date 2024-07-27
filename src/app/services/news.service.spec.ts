@@ -1,6 +1,6 @@
 import { TestBed, inject, fakeAsync } from '@angular/core/testing';
 import { NewsService } from './news.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 const mockResponse = {
   'status': 'OK',
@@ -99,12 +99,13 @@ const mockResponse = {
 describe('NewsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
-      providers: [
+    imports: [],
+    providers: [
         NewsService,
         { provide: HttpClient, useClass: MockBackend },
-      ]
-    });
+        provideHttpClient(withInterceptorsFromDi()),
+    ]
+});
   });
 
   it('should be created', inject([NewsService], (service: NewsService) => {
