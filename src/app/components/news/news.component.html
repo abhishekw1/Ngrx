@@ -1,11 +1,8 @@
 <br />
-
-<app-news-item
-  *ngFor="let oneNews of sectionNewsList; let i = index"
-  [id]="i"
-  [newsItem]="oneNews"
->
-</app-news-item>
-<div class="card" *ngIf="sectionNewsList.length === 0">
+@for(oneNews of sectionNewsList;track id;let id = $index){
+<app-news-item [id]="id" [newsItem]="oneNews"> </app-news-item>
+} @empty{
+<div class="card">
   <h1>No News Found</h1>
 </div>
+}

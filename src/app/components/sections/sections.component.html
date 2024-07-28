@@ -1,11 +1,12 @@
 <div class="list-group">
+  @for(sectionName of sectionList;track sectionName){
   <a
     href="#!"
     class="list-group-item list-group-item-action ml-2"
-    routerLink="section/{{sectionName}}"
+    routerLink="section/{{ sectionName }}"
     routerLinkActive="active"
-    *ngFor="let sectionName of sectionList"
   >
-  {{ sectionName }}
+    {{ sectionName }}
   </a>
+  }
 </div>

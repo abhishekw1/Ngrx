@@ -1,11 +1,12 @@
 <ul class="nav justify-content-center bg-dark">
-    <li 
-      class="nav-item"
-      *ngFor="let subsection of subsections">
-      <a 
-        href="javascript:void(0);"
-        class="nav-link  text-white small" 
-        (click)="dispatchAction(subsection)">{{subsection}}  </a>
-    </li>
-  </ul>
-  
+  @for(subsection of subsections;track subsection){
+  <li class="nav-item">
+    <a
+      href="javascript:void(0);"
+      class="nav-link text-white small"
+      (click)="dispatchAction(subsection)"
+      >{{ subsection }}
+    </a>
+  </li>
+  }
+</ul>

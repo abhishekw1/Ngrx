@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
-import { loadNews } from 'src/app/store/actions';
+import { newsActions } from 'src/app/store/actions';
 import { allNewsDeatils } from 'src/app/store/selectors';
+import { NewsItemComponent } from './news-item/news-item.component';
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.scss'],
+  standalone: true,
+  imports: [NewsItemComponent],
 })
 export class NewsComponent implements OnInit {
   sectionNewsList: any;
@@ -19,7 +22,7 @@ export class NewsComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
-      this.store.dispatch(loadNews({ newsType: params.get('id') }));
+      this.store.dispatch(newsActions.loadNews({ newsType: params.get('id') }));
     });
 
     this.store.select(allNewsDeatils).subscribe((news) => {
